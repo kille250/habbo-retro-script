@@ -27,7 +27,7 @@ nitro_dep() {
 
 nitro_setup(){
   # Clone nitro
-  git clone https://git.krews.org/nitro/nitro-react.git
+  git clone https://github.com/billsonnn/nitro-react
   
   sudo chown -R $USER:$USER ./nitro-react/
 
