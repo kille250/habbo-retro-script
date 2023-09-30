@@ -10,7 +10,7 @@ arcturus_setup(){
   mkdir ./emulator
 
   # Extract emulator file 
-  curl -o emulator.zip $RELEASE
+  curl -o emulator.zip "$RELEASE"
 
   # Remove emulator rar
   mv emulator.zip ./emulator
