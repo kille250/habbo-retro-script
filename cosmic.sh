@@ -11,13 +11,13 @@ setup_cosmic(){
     mkdir /var/www
   fi
 
-  git clone https://git.krews.org/Raizer/cosmic-assets.git
+  git clone https://git.krews.org/duckietm/cosmic-cms.git
 
-  mv cosmic-assets/Plugin/Webkit.jar ./
+  mv Setup/Webkit/Webkit.jar ./
 
   cd /var/www/
 
-  git clone https://git.krews.org/Raizer/Cosmic.git
+  git clone https://git.krews.org/duckietm/cosmic-cms.git
 
   mkdir $CMS_DOMAIN
 
