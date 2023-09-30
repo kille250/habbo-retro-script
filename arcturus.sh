@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RELEASE=https://git.krews.org/morningstar/Arcturus-Community/uploads/7d11f511bd40ebc30288f5458cdac4a7/Arcturus_MS_351_STABLE.zip
+RELEASE=https://cdn.discordapp.com/attachments/1012439779872350288/1157786729076506676/release.zip?ex=6519e06a&is=65188eea&hm=6706cf3d33e922ae8e399c7cca493b3f2a0b4e8692154de125a2b01409d876cc&
 
 arcturus_dep(){
   sudo apt-get install unzip wget default-jre -y
@@ -23,7 +23,7 @@ arcturus_setup(){
 
   cd ..
 
-  mv "$SCRIPT_PATH/emulator/base database/BASEDB_ARCMS_350_STB-925b0513883fa34a34c3a00b59a17833.sql" ./emulator
+  mv "$SCRIPT_PATH/emulator/base database/BASEDB_ARCMS_352_STB-8e6d9eb74f01a2dd4834761b18882682.sql" ./emulator
   
   # Replace database inside config.ini
   sed -i -e "s/db.database=arcturusms/db.database=${DB_DATABASE}/g" $SCRIPT_PATH/emulator/config.ini
@@ -39,7 +39,7 @@ arcturus_setup(){
   # Create new run.sh file
   bash -c "cat > $SCRIPT_PATH/emulator/emulator" << EOF
 #!/bin/sh
-java -Dfile.encoding=UTF8 -Xmx4096m -jar /srv/Arcturus/Habbo-3.5.1-jar-with-dependencies.jar > /var/log/emulator.log
+java -Dfile.encoding=UTF8 -Xmx4096m -jar /srv/Arcturus/Habbo-3.5.2-jar-with-dependencies.jar > /var/log/emulator.log
 EOF
 
 mv ./emulator /srv/Arcturus
@@ -58,7 +58,7 @@ sudo systemctl start arcturus.service
 arcturus_configure_database(){
   # Execute sql file
   output "Execute arcturus base database"
-  mysql -u root "-p${DB_PASSWORD}" ${DB_DATABASE} < "$SCRIPT_PATH/emulator/BASEDB_ARCMS_350_STB-925b0513883fa34a34c3a00b59a17833.sql"
+  mysql -u root "-p${DB_PASSWORD}" ${DB_DATABASE} < "$SCRIPT_PATH/emulator/BASEDB_ARCMS_352_STB-8e6d9eb74f01a2dd4834761b18882682.sql"
 
   mysql -u root "-p${DB_PASSWORD}" ${DB_DATABASE} -e "ALTER TABLE users ADD secret_key varchar(40) NULL DEFAULT NULL;"
 
