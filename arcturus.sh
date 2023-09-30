@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RELEASE=https://shorturl.at/hiEPW
+RELEASE=https://cdn.discordapp.com/attachments/1012439779872350288/1157786729076506676/release.zip
 
 arcturus_dep(){
   sudo apt-get install unzip wget default-jre -y
