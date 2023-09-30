@@ -1,6 +1,8 @@
 #!/bin/bash
 
-RELEASE=https://cdn.discordapp.com/attachments/1012439779872350288/1157786729076506676/release.zip?ex=6519e06a&is=65188eea&hm=6706cf3d33e922ae8e399c7cca493b3f2a0b4e8692154de125a2b01409d876cc&
+RELEASE="https://cdn.discordapp.com/attachments/1012439779872350288/1157786729076506676/release.zip?ex=6519e06a&is=65188eea&hm=6706cf3d33e922ae8e399c7cca493b3f2a0b4e8692154de125a2b01409d876cc&"
+# Encode the URL to handle special characters
+ENCODED_RELEASE=$(echo "$RELEASE" | sed 's/&/%26/g')
 
 arcturus_dep(){
   sudo apt-get install unzip wget default-jre -y
@@ -10,7 +12,7 @@ arcturus_setup(){
   mkdir ./emulator
 
   # Extract emulator file 
-  curl -o -L emulator.zip "$RELEASE"
+  curl -o emulator.zip $ENCODED_RELEASE
 
   # Remove emulator rar
   mv emulator.zip ./emulator
